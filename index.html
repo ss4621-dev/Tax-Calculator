@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="primary-color">Tax Calculator</h1>
+      <form id="taxForm">
+        <div class="form-group">
+          <label for="income" class="secondary-color"
+            >Gross Annual Income (Lakhs)</label
+          >
+          <input
+            type="number"
+            class="form-control input-primary"
+            id="income"
+            min="0"
+            placeholder="Enter income"
+          />
+          <div
+            class="error-icon"
+            id="incomeError"
+            title="Income is mandatory"
+          ></div>
+        </div>
+        <div class="form-group">
+          <label for="extraIncome" class="secondary-color"
+            >Extra Income (Lakhs)</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="extraIncome"
+            placeholder="Enter extra income"
+          />
+          <div
+            class="error-icon"
+            id="extraIncomeError"
+            title="Extra income is mandatory"
+          ></div>
+        </div>
+        <div class="form-group">
+          <label for="deductions" class="secondary-color"
+            >Deductions (Lakhs)</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="deductions"
+            placeholder="Enter deductions"
+          />
+          <div
+            class="error-icon"
+            id="deductionsError"
+            title="Deductions is mandatory"
+          ></div>
+        </div>
+        <div class="form-group">
+          <label for="age" class="secondary-color">Age</label>
+          <select class="form-control" id="age">
+            <option value="<40">Under 40</option>
+            <option value="≥40 & <60">40 to 60</option>
+            <option value="≥60">60 and above</option>
+          </select>
+          <div class="error-icon" id="ageError" title="Age is mandatory"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate Tax</button>
+      </form>
+    </div>
+
+    <div class="modal" id="resultModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Tax Calculation Result</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body" id="resultBody">
+            <div class="row">
+              <div class="col-6">
+                <p>
+                  <strong>Gross Annual Income:</strong>
+                  <span id="resultIncome"></span> Lakhs
+                </p>
+                <p>
+                  <strong>Extra Income:</strong>
+                  <span id="resultExtraIncome"></span> Lakhs
+                </p>
+                <p>
+                  <strong>Deductions:</strong>
+                  <span id="resultDeductions"></span> Lakhs
+                </p>
+                <p><strong>Age:</strong> <span id="resultAge"></span></p>
+              </div>
+              <div class="col-6">
+                <p>
+                  <strong>Tax Amount:</strong>
+                  <span id="resultTaxAmount"></span> Lakhs
+                </p>
+                <p>
+                  <strong>Total Income:</strong>
+                  <span id="resultTotalIncome"></span> Lakhs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
